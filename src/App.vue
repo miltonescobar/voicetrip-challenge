@@ -1,12 +1,18 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+  <div>
+    <Map msg="Hello Map!" />
   </div>
 </template>
+
+<script>
+import Map from "./components/Map.vue";
+export default {
+  name: "App",
+  components: {
+    Map
+  }
+};
+</script>
 
 <style lang="scss">
 #app {

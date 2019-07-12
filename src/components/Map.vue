@@ -14,19 +14,37 @@ export default {
     };
   },
   mounted() {
+    var map;
+    window.initMap = function() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8
+      });
+    };
+
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     //const url = "https://example.com"; // site that doesn’t send Access-Control-*
     fetch(proxyurl + this.url) // https://cors-anywhere.herokuapp.com/https://example.com
       .then(response => response.text())
       .then(contents => {
-        console.log(contents);
+        const target = document.querySelector("body");
+        const newScript = document.createElement("script");
+        const inlineScript = document.createTextNode(contents);
+        newScript.appendChild(inlineScript);
+        target.appendChild(newScript);
       })
-      .catch(() =>
+      .catch(err =>
         console.log(
+          err,
           "Can’t access " + this.url + " response. Blocked by browser?"
         )
       );
   }
 };
 </script>
-<style></style>
+<style>
+#map {
+  width: 392.2px;
+  height: 660.55px;
+}
+</style>

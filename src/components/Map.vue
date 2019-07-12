@@ -10,8 +10,7 @@ export default {
   },
   data() {
     return {
-      url:
-        "https://maps.googleapis.com/maps/api/js?key=AIzaSyCZZPJ-EA5cmVovoldFqCG2TX6CqSmNW5c&callback=initMap"
+      url: `https://maps.googleapis.com/maps/api/js?key=${process.env.VUE_APP_GOOGLE_MAPS_API_KEY}&callback=initMap`
     };
   },
   mounted() {

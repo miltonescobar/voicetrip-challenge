@@ -3,8 +3,8 @@ const Fakerator = require('fakerator');
 const veggies = require('./products');
 
 const home = {
-  lat: 45.4356958,
-  lng: -122.5305477,
+  lat: 45.5097969,
+  lng: -73.5684673,
 };
 
 const pickProducts = count => {

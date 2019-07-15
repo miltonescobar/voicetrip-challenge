@@ -3,6 +3,8 @@ const mount = require('koa-mount')
 const graphqlHTTP = require('koa-graphql')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
+const rootGraphQL = require('./graphql/resolvers-root')
+const schemaGraphQL = require('./graphql/schema')
 
 const app = new Koa()
 
@@ -26,6 +28,13 @@ async function start() {
   } else {
     await nuxt.ready()
   }
+
+  //connect graphQL With the server
+  app.use(mount('/graphql',graphqlHTTP({
+    schema: schemaGraphQL,
+    rootValue: rootGraphQL,
+    graphiql: true
+  })));
 
   app.use((ctx) => {
     ctx.status = 200

@@ -3,7 +3,6 @@ const mount = require('koa-mount')
 const graphqlHTTP = require('koa-graphql')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
-const { buildSchema } = require('graphql')
 
 const app = new Koa()
 

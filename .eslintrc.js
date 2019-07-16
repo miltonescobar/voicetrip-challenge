@@ -21,6 +21,8 @@ module.exports = {
   rules: {
     'nuxt/no-cjs-in-config': 'off',
     'vue/html-self-closing': 'off',
-    'prettier/prettier': 'off'
+    'prettier/prettier': 'off',
+    'semi': [0,'always'],
+    'arrow-parens': [2, 'as-needed']
   }
 }
